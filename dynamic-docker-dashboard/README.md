@@ -1,124 +1,85 @@
-Dynamic Docker Dashboard for Container Monitoring
+# Dynamic Docker Dashboard for Container Monitoring
 
-A Flask-based web application for managing and monitoring Docker containers and system resources in real time. This dashboard enables users to create, view, and manage Docker containers, monitor system resource usage, and view container logs, all through a simple and intuitive web interface.
-Features
-1. Container Management
+A Flask-based web application for managing and monitoring Docker containers and system resources in real time. This dashboard provides a simple and intuitive interface to streamline container management, monitor system metrics, and track resource utilization effectively.
 
-    Create new Docker containers by specifying:
-        Container Name
-        Image Name
-        Ports
-        Initial Status (Running/Stopped)
-    View a list of all existing containers, including their:
-        Image
-        Name
-        Ports
-        Creation Time
-        Status
+---
 
-2. Real-Time Monitoring
+## Table of Contents
 
-    System Monitoring:
-        CPU Usage
-        Memory Usage
-        Disk Usage
-    Container Resource Monitoring:
-        CPU, Memory, and Network Usage of each running container (via docker stats).
+- [Features](#features)
+- [Technology Stack](#technology-stack)
+- [Prerequisites](#prerequisites)
+- [Setup and Usage](#setup-and-usage)
+- [Project Structure](#project-structure)
+- [Screenshots](#screenshots)
+- [Future Enhancements](#future-enhancements)
+- [Contributing](#contributing)
+- [License](#license)
 
-3. Alerts System
+---
 
-    Proactively monitors system resources and Docker container performance.
-    Generates alerts for:
-        High CPU usage
-        High Memory usage
-        Low Disk Space
-        Example conditions for unhealthy containers
+## Features
 
-4. Logs Viewer
+### **1. Container Management**
+- **Create Containers**:  
+  Create Docker containers with the ability to specify:
+  - Container Name
+  - Image Name
+  - Ports
+  - Initial Status (Running or Stopped)
 
-    Fetch and display logs for individual containers using docker logs.
-    Allows filtering logs by container name for troubleshooting.
+- **View Containers**:  
+  Display a list of all containers along with:
+  - Image Name
+  - Container Name
+  - Ports Mapped
+  - Creation Time
+  - Current Status
 
-Technology Stack
-Backend:
+### **2. Real-Time Monitoring**
+- **System Monitoring**:
+  - CPU Usage
+  - Memory Usage
+  - Disk Space Utilization
+- **Container Monitoring**:
+  - CPU, Memory, and Network usage of each container using `docker stats`.
 
-    Flask (Python)
-    psutil for system resource monitoring
-    Subprocess for executing Docker commands
+### **3. Alerts System**
+- Proactive alerts for:
+  - High CPU Usage
+  - High Memory Usage
+  - Low Disk Space
+- Threshold-based monitoring to ensure system health and performance.
 
-Frontend:
+### **4. Logs Viewer**
+- Fetch and display logs for individual containers using the `docker logs` command.
+- Ability to filter logs by container name for troubleshooting.
 
-    HTML/CSS for a user-friendly interface
-    Dynamic dropdowns and tab-based navigation
+---
 
-Tools:
+## Technology Stack
 
-    Docker for container management
-    docker stats, docker ps, and docker logs commands
+### **Backend**:
+- **Flask**: Lightweight Python web framework.
+- **psutil**: Library for monitoring system resources.
+- **Subprocess**: For executing Docker CLI commands.
 
-Prerequisites
+### **Frontend**:
+- HTML/CSS for a simple and clean UI.
 
-    Install Docker
-    Ensure Docker is installed and running on your system. Follow the Docker installation guide if needed.
+### **Tools**:
+- Docker: For containerized applications.
+- Flask Templates: To dynamically render pages.
 
-    Install Python
-    Ensure Python (>= 3.6) is installed. Check with:
+---
 
-python --version
+## Prerequisites
 
-Install Required Packages
-Install the dependencies using pip:
+1. **Install Docker**  
+   Ensure Docker is installed on your system.  
+   [Docker Installation Guide](https://docs.docker.com/get-docker/)
 
-    pip install flask psutil
-
-    Run Docker Daemon
-    Ensure the Docker daemon is running before starting the application.
-
-Setup and Usage
-
-    Clone the Repository:
-
-git clone https://github.com/yourusername/docker-dashboard.git
-cd docker-dashboard
-
-Run the Flask App:
-
-python app.py
-
-Access the Dashboard: Open your browser and go to:
-
-    http://127.0.0.1:5000/
-
-    Explore Features:
-        Navigate to different tabs for managing and monitoring containers and resources.
-        Monitor logs, resource usage, and system alerts in real-time.
-
-Project Structure
-
-docker-dashboard/
-├── templates/
-│   ├── index.html                # Home Page
-│   ├── Create_container.html     # Create Container Page
-│   ├── All_container-list.html   # List Containers Page
-│   ├── container_monitoring.html # Container Logs & Resource Monitoring
-│   ├── system_monitoring.html    # System Monitoring Page
-│   ├── alert.html                # Alerts Page
-├── static/
-│   ├── css/                      # Stylesheets
-│       ├── style.css             # Main Stylesheet
-├── app.py                        # Flask Application Code
-├── README.md                     # Project Documentation
-
-Screenshots
-1. Home Page
-
-2. Container List
-
-3. Real-Time Monitoring
-
-Future Enhancements
-
-    Live Updates:
-        Use a WebSocket or AJAX-based solution for dynamic updates without refreshing the page.
-    Authentication:
-        Add a login system  
+2. **Install Python**  
+   Make sure Python 3.6 or later is installed. Check using:  
+   ```bash
+   python --version
