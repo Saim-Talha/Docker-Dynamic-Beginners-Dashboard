@@ -1,0 +1,231 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Dynamic Docker Dashboard</title>
+    <style>
+        /* General Reset */
+        * {
+            margin: 0;
+            padding: 0;
+            box-sizing: border-box;
+            font-family: Arial, sans-serif;
+        }
+
+        body {
+            background-color: #f5f5f5;
+            color: #333;
+            min-height: 100vh;
+            margin: 0;
+            padding: 0;
+        }
+
+        .dashboard {
+            width: 100%;
+            min-height: 100vh;
+            background: #fff;
+            box-shadow: 0 4px 10px rgba(0, 0, 0, 0.1);
+        }
+
+        .header {
+            background: #007bff;
+            color: #fff;
+            padding: 20px;
+            text-align: center;
+        }
+
+        .header h1 {
+            font-size: 2.5rem;
+        }
+
+        .tabs {
+            display: flex;
+            justify-content: space-evenly;
+            background: #f8f9fa;
+            padding: 15px 0;
+            border-bottom: 3px solid #007bff;
+        }
+
+        .tabs div {
+            font-weight: bold;
+            color: #333;
+            padding: 10px 30px;
+            cursor: pointer;
+            border-radius: 4px;
+            transition: background 0.3s, color 0.3s;
+        }
+
+        .tabs div:hover {
+            background: #007bff;
+            color: #fff;
+        }
+
+        .content {
+            padding: 30px 10%;
+        }
+
+        .content h2 {
+            color: #007bff;
+            margin-bottom: 20px;
+        }
+
+        .content p {
+            font-size: 1.2rem;
+            line-height: 1.8;
+            color: #555;
+        }
+
+        .content ul {
+            margin-top: 15px;
+            list-style-type: disc;
+            padding-left: 20px;
+            font-size: 1.1rem;
+            color: #555;
+        }
+
+        .footer {
+            background: #007bff;
+            color: #fff;
+            text-align: center;
+            padding: 15px 0;
+            font-size: 1rem;
+            position: relative;
+            bottom: 0;
+            width: 100%;
+        }
+
+        /* Media Queries for Responsiveness */
+        @media (max-width: 768px) {
+            .header h1 {
+                font-size: 1.8rem;
+            }
+
+            .tabs div {
+                padding: 8px 15px;
+                font-size: 1rem;
+            }
+
+            .content p, .content ul {
+                font-size: 1rem;
+            }
+        }
+    </style>
+</head>
+<body>
+<div class="dashboard">
+    <div class="header">
+        <h1>Dynamic Docker Dashboard for Container Monitoring</h1>
+    </div>
+    <div class="tabs">
+        <!-- Container List Tab -->
+        <a href="{{ url_for('container_list') }}" class="tab-link">
+            <div class="tab">Containers List</div>
+        </a>
+
+        <!-- Create Container Tab -->
+        <a href="{{ url_for('create_container') }}" class="tab-link">
+            <div class="tab">Create Container</div>
+        </a>
+
+        <!-- Machine Monitoring Dropdown -->
+        <div class="dropdown">
+            <button class="dropbtn">Machine Monitoring</button>
+            <div class="dropdown-content">
+                <a href="{{ url_for('monitoring_dashboard') }}">Containers Monitoring</a>
+                <a href="{{ url_for('system_monitoring') }}">System Monitoring</a>
+            </div>
+        </div>
+
+        <!-- Alerts Tab -->
+        <a href="{{ url_for('alerts_page') }}" class="tab-link">
+            <div class="tab">Alerts</div>
+        </a>
+    </div>
+</div>
+
+<style>
+    /* Ensure the tabs are aligned horizontally */
+    .tabs {
+        display: flex;
+        justify-content: space-around; /* Evenly space the tabs */
+        margin-top: 20px;
+    }
+
+    /* Style for each tab */
+    .tab {
+        padding: 10px 20px;
+        margin: 0 10px;
+        background-color: #f0f0f0;
+        border-radius: 5px;
+        text-align: center;
+        cursor: pointer;
+    }
+
+    /* Style for the links */
+    .tab-link {
+        text-decoration: none;
+        color: black;
+    }
+
+    /* Dropdown button styling */
+    .dropbtn {
+        background-color: #f0f0f0;
+        border: none;
+        padding: 10px 20px;
+        text-align: center;
+        cursor: pointer;
+        border-radius: 5px;
+    }
+
+    /* Dropdown content styling */
+    .dropdown-content {
+        display: none;
+        position: absolute;
+        background-color: #f0f0f0;
+        min-width: 160px;
+        z-index: 1;
+        box-shadow: 0px 8px 16px rgba(0, 0, 0, 0.2);
+        border-radius: 5px;
+    }
+
+    /* Show dropdown when hovering over the button */
+    .dropdown:hover .dropdown-content {
+        display: block;
+    }
+
+    .dropdown-content a {
+        padding: 12px 16px;
+        text-decoration: none;
+        display: block;
+        color: black;
+    }
+
+    .dropdown-content a:hover {
+        background-color: #ddd;
+    }
+
+    /* Position dropdown relative to the tab */
+    .dropdown {
+        position: relative;
+    }
+</style>
+
+        <div class="content">
+            <h2>About the Project</h2>
+            <p>This dynamic Docker dashboard offers real-time monitoring of containerized environments. It provides vital insights into active containers, stopped containers, machine resource usage, and critical alerts to ensure smooth operations.</p>
+            <h3>Key Points:</h3>
+            <ul>
+                <li><strong>Uniqueness:</strong> The dashboard offers an interactive, user-friendly interface with real-time updates, tailored for containerized environments.</li>
+                <li><strong>Benefits:</strong> Efficiently tracks and manages container performance, ensures system health, and minimizes downtime with proactive alerts.</li>
+                <li><strong>Usability:</strong> Helps developers and administrators oversee Docker environments effortlessly, saving time and improving productivity.</li>
+                <li><strong>Challenges:</strong> Ensuring real-time responsiveness, managing large datasets, and integrating multiple monitoring tools seamlessly.</li>
+                <li><strong>Tools Used:</strong> HTML, CSS, JavaScript for UI, Docker APIs for container data, and real-time frameworks for live monitoring.</li>
+            </ul>
+        </div>
+        <div class="footer">
+            &copy; 2024 Dynamic Docker Dashboard. All rights reserved.
+        </div>
+    </div>
+</body>
+</html>

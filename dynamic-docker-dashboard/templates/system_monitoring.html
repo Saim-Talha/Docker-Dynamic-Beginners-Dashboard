@@ -1,0 +1,63 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Real-Time System Usage</title>
+
+    <!-- Meta tag to refresh the page every 5 seconds -->
+    <meta http-equiv="refresh" content="5">
+
+    <style>
+        body {
+            font-family: Arial, sans-serif;
+            margin: 20px;
+        }
+        .bar-container {
+            display: flex;
+            align-items: center;
+            margin: 10px 0;
+        }
+        .bar {
+            width: 70%;
+            background: lightgray;
+            height: 20px;
+            margin-left: 10px;
+            position: relative;
+        }
+        .bar .fill {
+            height: 100%;
+            background: green;
+            width: 0%;
+            transition: width 0.5s;
+        }
+        .label {
+            width: 20%;
+        }
+    </style>
+</head>
+<body>
+    <h1>Real-Time System Usage</h1>
+    <div class="bar-container">
+        <div class="label">CPU:</div>
+        <div class="bar">
+            <div class="fill" style="width: {{ cpu }}%"></div>
+        </div>
+        <div id="cpu-percent">{{ cpu }}%</div>
+    </div>
+    <div class="bar-container">
+        <div class="label">Memory:</div>
+        <div class="bar">
+            <div class="fill" style="width: {{ memory }}%"></div>
+        </div>
+        <div id="memory-percent">{{ memory }}%</div>
+    </div>
+    <div class="bar-container">
+        <div class="label">Storage:</div>
+        <div class="bar">
+            <div class="fill" style="width: {{ storage }}%"></div>
+        </div>
+        <div id="storage-percent">{{ storage }}%</div>
+    </div>
+</body>
+</html>

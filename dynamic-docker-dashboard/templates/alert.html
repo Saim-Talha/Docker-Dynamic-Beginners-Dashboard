@@ -1,0 +1,55 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>System Alerts</title>
+    <style>
+        body {
+            font-family: Arial, sans-serif;
+            text-align: center;
+            padding: 20px;
+        }
+        .alert-box {
+            margin: 20px auto;
+            padding: 10px;
+            border: 2px solid red;
+            background-color: #ffe6e6;
+            color: red;
+            width: 80%;
+            max-width: 400px;
+            border-radius: 5px;
+        }
+        .no-alert-box {
+            margin: 20px auto;
+            padding: 10px;
+            border: 2px solid green;
+            background-color: #e6ffe6;
+            color: green;
+            width: 80%;
+            max-width: 400px;
+            border-radius: 5px;
+        }
+        h1 {
+            color: #333;
+        }
+    </style>
+</head>
+<body>
+    <h1>System Alerts</h1>
+
+    <!-- Display alerts if there are any -->
+    {% if alerts %}
+        {% for alert in alerts %}
+            <div class="alert-box">
+                {{ alert }}
+            </div>
+        {% endfor %}
+    {% else %}
+        <!-- Display "no alerts" message if there are no alerts -->
+        <div class="no-alert-box">
+            No alerts! The system is running smoothly.
+        </div>
+    {% endif %}
+</body>
+</html>
