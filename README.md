@@ -6,15 +6,15 @@ A Flask-based web application for managing and monitoring Docker containers and 
 
 ## Table of Contents
 
-- [Features](#features)
-- [Technology Stack](#technology-stack)
-- [Prerequisites](#prerequisites)
-- [Setup and Usage](#setup-and-usage)
-- [Project Structure](#project-structure)
-- [Screenshots](#screenshots)
-- [Future Enhancements](#future-enhancements)
-- [Contributing](#contributing)
-- [License](#license)
+- Features
+- Technology Stack
+- Prerequisites
+- Setup and Usage
+- Project Structure
+- Screenshots
+- Future Enhancements
+-  Contributing
+- License
 
 ---
 
